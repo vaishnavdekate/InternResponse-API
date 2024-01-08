@@ -20,7 +20,7 @@ app.post("/data", async(req, res) => {
 })
 
 // Handling Get Request
-app.get("/data", async(req, res) => {
+app.get("/getdata", async(req, res) => {
   try{
     const getData = await FormResponse.find({});
     res.send(getData);
