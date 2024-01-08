@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const formResponseSchema = new mongoose.Schema({
+const internsDataSchema = new mongoose.Schema({
   // Define your schema fields here
   Timestamp: String,
   Email: String,
@@ -24,6 +24,6 @@ const formResponseSchema = new mongoose.Schema({
   // ... other fields
 });
 
-const FormResponse = new mongoose.model('FormResponse', formResponseSchema);
+const FormResponse = new mongoose.model('internsdata', internsDataSchema);
 
 module.exports = FormResponse;
