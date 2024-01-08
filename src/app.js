@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 require("./db/conn");
 const FormResponse = require("./models/response");
 
@@ -9,6 +9,7 @@ const port = process.env.PORT || 5000;
 //const mongodb = context.services.get("mongodb-atlas");
   //const itemsCollection = mongodb.db("Internship_Response").collection("interns_data");
 const itemsCollection = mongoose.connection.collection("interns_data");
+console.log(itemsCollection);
 
 app.use(express.json());
 
@@ -28,7 +29,7 @@ app.post("/data", async(req, res) => {
 app.get("/getdata", async(req, res) => {
   try{
     const getData = await itemsCollection.find({});
-    res.send(getData);
+    console.log(getData);
   }catch(e){
     res.status(400).send(e);
   }
