@@ -29,7 +29,7 @@ app.post("/data", async(req, res) => {
 app.get("/getdata", async(req, res) => {
   try{
     const getData = await itemsCollection.find({});
-    res.send(getdata);
+    res.send(itemsCollection);
     //console.log(getData);
   }catch(e){
     res.status(400).send(e);
