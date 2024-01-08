@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 //const mongodb = context.services.get("mongodb-atlas");
   //const itemsCollection = mongodb.db("Internship_Response").collection("interns_data");
 const itemsCollection = mongoose.connection.collection("interns_data");
-console.log(itemsCollection);
+console.log(itemsCollection.collection.interns_data);
 
 app.use(express.json());
 
@@ -29,7 +29,8 @@ app.post("/data", async(req, res) => {
 app.get("/getdata", async(req, res) => {
   try{
     const getData = await itemsCollection.find({});
-    console.log(getData);
+    res.send(getdata);
+    //console.log(getData);
   }catch(e){
     res.status(400).send(e);
   }
