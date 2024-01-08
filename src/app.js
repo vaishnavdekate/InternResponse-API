@@ -5,6 +5,9 @@ const FormResponse = require("./models/response");
 const app = express();
 const port = process.env.PORT || 5000;
 
+const mongodb = context.services.get("mongodb-atlas");
+  const itemsCollection = mongodb.db("Internship_Response").collection("interns_data");
+
 app.use(express.json());
 
 // Handling Post Request
@@ -22,7 +25,7 @@ app.post("/data", async(req, res) => {
 // Handling Get Request
 app.get("/getdata", async(req, res) => {
   try{
-    const getData = await FormResponse.find({});
+    const getData = await itemsCollection.find({});
     res.send(getData);
   }catch(e){
     res.status(400).send(e);
