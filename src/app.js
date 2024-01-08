@@ -5,8 +5,9 @@ const FormResponse = require("./models/response");
 const app = express();
 const port = process.env.PORT || 5000;
 
-const mongodb = context.services.get("mongodb-atlas");
-  const itemsCollection = mongodb.db("Internship_Response").collection("interns_data");
+//const mongodb = context.services.get("mongodb-atlas");
+  //const itemsCollection = mongodb.db("Internship_Response").collection("interns_data");
+const itemsCollection = mongoose.connection.collection("interns_data");
 
 app.use(express.json());
 
